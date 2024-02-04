@@ -17,6 +17,10 @@ namespace Infrastructure.Data
         }
 
         DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        DbSet<Product> Products { get; set; }
+        DbSet<Category> Categories { get; set; }
+        DbSet<Inventory> Inventory { get; set; }
+        DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

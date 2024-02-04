@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data.Persistence.Repository
 {
-    public class UserRepository : RepositoryBase<ApplicationUser>, IProductRepository
+    public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
-        public UserRepository(RepositoryContext repositoryContext) : base(repositoryContext)
+        public ProductRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
     }
