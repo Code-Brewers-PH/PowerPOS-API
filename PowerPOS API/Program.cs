@@ -1,7 +1,7 @@
 using Infrastructure.Data;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Logging;
+using PowerPOS_API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,34 +11,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddLogging();
 
-// Add CORS Policy
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.WithOrigins(
-            "http://localhost:3000"
-            )
-               .AllowAnyHeader()
-               .AllowAnyMethod()
-               .AllowCredentials();
-    });
-});
-
-// User account requirements
-builder.Services
-    .AddIdentityCore<IdentityUser>(options => {
-        options.SignIn.RequireConfirmedAccount = false;
-        options.User.RequireUniqueEmail = true;
-        options.Password.RequireDigit = false;
-        options.Password.RequiredLength = 6;
-        options.Password.RequireNonAlphanumeric = true;
-        options.Password.RequireUppercase = true;
-        options.Password.RequireLowercase = true;
-    })
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<RepositoryContext>();
-
 // Connection string to database
 builder.Services.AddDbContext<RepositoryContext>(x =>
     x.UseSqlite(builder.Configuration.GetConnectionString("DefaultSqliteConnection")));
@@ -47,6 +19,12 @@ builder.Services.AddDbContext<RepositoryContext>(x =>
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
+
+// Services injection and repository wrapper
+builder.Services.ConfigureRepositoryWrapper();
+builder.Services.ConfigureIdentityUser();
+builder.Services.ConfigureServices();
+builder.Services.ConfigureCORS();
 
 // Inject logging services
 builder.Logging.ClearProviders();
