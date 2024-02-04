@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPOS API", "PowerPOS API\PowerPOS API.csproj", "{CCCB5F13-F09A-4747-AF3F-1377060161DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerPOS API", "PowerPOS API\PowerPOS API.csproj", "{CCCB5F13-F09A-4747-AF3F-1377060161DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{698A52E1-3E3C-4413-A875-C33E9B7BBEB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{698A52E1-3E3C-4413-A875-C33E9B7BBEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{9899E97D-08F1-498C-ACD9-399599D0815A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{9899E97D-08F1-498C-ACD9-399599D0815A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{5438B44A-A486-4FCE-84AF-3DFF41943BE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9899E97D-08F1-498C-ACD9-399599D0815A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9899E97D-08F1-498C-ACD9-399599D0815A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9899E97D-08F1-498C-ACD9-399599D0815A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5438B44A-A486-4FCE-84AF-3DFF41943BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5438B44A-A486-4FCE-84AF-3DFF41943BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5438B44A-A486-4FCE-84AF-3DFF41943BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5438B44A-A486-4FCE-84AF-3DFF41943BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
