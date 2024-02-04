@@ -1,10 +1,9 @@
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -25,6 +24,20 @@ builder.Services.AddCors(options =>
                .AllowCredentials();
     });
 });
+
+// User account requirements
+builder.Services
+    .AddIdentityCore<IdentityUser>(options => {
+        options.SignIn.RequireConfirmedAccount = false;
+        options.User.RequireUniqueEmail = true;
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 6;
+        options.Password.RequireNonAlphanumeric = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireLowercase = true;
+    })
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<RepositoryContext>();
 
 // Connection string to database
 builder.Services.AddDbContext<RepositoryContext>(x =>
